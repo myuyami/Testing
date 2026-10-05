@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elus Kucing Hitam Lucu 🐾</title>
     <style>
-        /* 1. MENGATUR BACKGROUND RUMAH YANG CERAH & COZY */
+        /* 1. BACKGROUND RUMAH CERAH */
         body {
             margin: 0;
             padding: 0;
@@ -14,174 +14,72 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* Warna dinding krem cerah dan lantai kayu hangat */
             background: linear-gradient(to bottom, #fff9e6 70%, #d2b48c 70%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: sans-serif;
             overflow: hidden;
             user-select: none;
         }
 
-        h1 {
-            color: #5c4033;
-            margin-bottom: 5px;
-            font-size: 24px;
-            text-align: center;
-            z-index: 10;
-        }
+        h1 { color: #5c4033; margin-bottom: 5px; font-size: 24px; text-align: center; z-index: 10; }
+        p { color: #8b5a2b; margin-top: 0; margin-bottom: 30px; font-size: 14px; z-index: 10; }
 
-        p {
-            color: #8b5a2b;
-            margin-top: 0;
-            margin-bottom: 30px;
-            font-size: 14px;
-            z-index: 10;
-        }
+        /* DEKORASI BELAKANG */
+        .cat-furniture { position: absolute; bottom: 30%; left: 15%; width: 80px; height: 180px; background-color: #e6ccb2; border-radius: 10px; z-index: 1; }
+        .cat-furniture::before { content: ''; position: absolute; top: -20px; left: -10px; width: 100px; height: 20px; background-color: #b08968; border-radius: 5px; }
+        .jendela { position: absolute; top: 10%; right: 15%; width: 120px; height: 150px; background-color: #e0f7fa; border: 6px solid #fff; border-radius: 5px; z-index: 1; }
 
-        /* 2. DEKORASI FURNITURE KUCHING DI BELAKANG */
-        .cat-furniture {
-            position: absolute;
-            bottom: 30%;
-            left: 15%;
-            width: 80px;
-            height: 180px;
-            background-color: #e6ccb2; /* Cat tower pohon */
-            border-radius: 10px;
-            box-shadow: inset -10px 0px rgba(0,0,0,0.1);
-            z-index: 1;
-        }
-        .cat-furniture::before {
-            content: '';
-            position: absolute;
-            top: -20px; left: -10px;
-            width: 100px; height: 20px;
-            background-color: #b08968;
-            border-radius: 5px;
-        }
-
-        .jendela {
-            position: absolute;
-            top: 10%;
-            right: 15%;
-            width: 120px;
-            height: 150px;
-            background-color: #e0f7fa; /* Kaca biru cerah */
-            border: 6px solid #fff;
-            border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            z-index: 1;
-        }
-
-        /* 3. WADAH UTAMA KUCING (DI TENGAH) */
+        /* 2. AREA KUCING */
         .area-kucing {
             position: relative;
             width: 200px;
             height: 220px;
             cursor: pointer;
             z-index: 5;
-            transition: transform 0.2s;
+            transition: transform 0.1s ease;
         }
 
-        /* Efek animasi membal saat kucing di-tap */
+        /* Animasi membal imut saat ditap */
         .area-kucing:active {
-            transform: scale(0.95);
+            transform: scale(0.92);
         }
 
-        /* 4. MENGGAMBAR KUCING HITAM MENGGUNAKAN CSS */
-        .badan {
-            position: absolute;
-            bottom: 0;
-            left: 30px;
-            width: 140px;
-            height: 140px;
-            background-color: #222222; /* Hitam gelap */
-            border-radius: 80px 80px 20px 20px;
-        }
-
-        .kepala {
-            position: absolute;
-            top: 20px;
-            left: 40px;
-            width: 120px;
-            height: 100px;
-            background-color: #222222;
-            border-radius: 50%;
-        }
-
-        /* Telinga Kucing */
-        .telinga-kiri, .telinga-kanan {
-            position: absolute;
-            top: -10px;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-bottom: 40px solid #222222;
-        }
+        /* GAMBAR KUCING HITAM */
+        .badan { position: absolute; bottom: 0; left: 30px; width: 140px; height: 140px; background-color: #222; border-radius: 80px 80px 20px 20px; }
+        .kepala { position: absolute; top: 20px; left: 40px; width: 120px; height: 100px; background-color: #222; border-radius: 50%; }
+        .telinga-kiri, .telinga-kanan { position: absolute; top: -10px; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 40px solid #222; }
         .telinga-kiri { left: 45px; transform: rotate(-15deg); }
         .telinga-kanan { right: 45px; transform: rotate(15deg); }
+        .mata-kiri, .mata-kanan { position: absolute; top: 50px; width: 30px; height: 30px; background-color: #ffd700; border-radius: 50%; }
+        .mata-kiri { left: 60px; } .mata-kanan { right: 60px; }
+        .mata-kiri::after, .mata-kanan::after { content: ''; position: absolute; top: 5px; left: 11px; width: 8px; height: 20px; background-color: #000; border-radius: 50%; }
+        .hidung { position: absolute; top: 75px; left: 95px; width: 10px; height: 8px; background-color: #ffb6c1; border-radius: 50%; }
 
-        /* MATA KUNING YANG LUAR BIASA */
-        .mata-kiri, .mata-kanan {
-            position: absolute;
-            top: 50px;
-            width: 30px;
-            height: 30px;
-            background-color: #ffd700; /* Warna Kuning Emas */
-            border-radius: 50%;
-        }
-        .mata-kiri { left: 60px; }
-        .mata-kanan { right: 60px; }
-
-        /* Pupil Hitam di Dalam Mata */
-        .mata-kiri::after, .mata-kanan::after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 11px;
-            width: 8px;
-            height: 20px;
-            background-color: #000;
-            border-radius: 50%;
-        }
-
-        /* Hidung Merah Muda Kecil */
-        .hidung {
-            position: absolute;
-            top: 75px;
-            left: 95px;
-            width: 10px;
-            height: 8px;
-            background-color: #ffb6c1;
-            border-radius: 50%;
-        }
-
-        /* 5. EFEK POP-UP HATI SAAT DI-TAP */
+        /* 3. ANIMASI HATI YANG LEBIH HALUS & CANTIK */
         .hati {
             position: absolute;
             color: #ff4d6d;
-            font-size: 30px;
-            animation: terbang 0.8s ease-out forwards;
+            font-size: 35px;
             pointer-events: none;
             z-index: 10;
+            animation: terbangHalus 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        @keyframes terbang {
-            0% { transform: translateY(0) scale(0.5); opacity: 1; }
-            100% { transform: translateY(-80px) scale(1.2); opacity: 0; }
+        @keyframes terbangHalus {
+            0% { transform: translateY(0) scale(0.3) rotate(0deg); opacity: 0; }
+            15% { opacity: 1; }
+            100% { transform: translateY(-120px) scale(1.3) rotate(15deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Judul Halaman -->
     <h1>Elus Kucing Hitam Lucu 🐾</h1>
     <p>Coba tap/elus badan kucing di bawah ini!</p>
 
-    <!-- Hiasan Rumah di Latar Belakang -->
     <div class="cat-furniture"></div>
     <div class="jendela"></div>
 
-    <!-- Karakter Kucing Utama (Bisa Di-klik) -->
     <div class="area-kucing" onclick="elusKucing(event)">
         <div class="telinga-kiri"></div>
         <div class="telinga-kanan"></div>
@@ -192,35 +90,29 @@
         <div class="hidung"></div>
     </div>
 
-    <!-- 6. PROGRAM JAVASCRIPT UNTUK EFEK INTERAKTIF -->
+    <!-- 4. EFEK SUARA KUCING ASLI (ONLINE AUDIO) -->
+    <audio id="suara-meow" src="https://mixkit.co" preload="auto"></audio>
+
     <script>
         function elusKucing(event) {
-            // Membuat efek simbol hati terbang saat di-tap
+            // A. Munculkan Hati Cantik tepat di posisi jari ditap
             const hati = document.createElement('div');
             hati.classList.add('hati');
             hati.innerHTML = '❤️';
             
-            // Mengatur posisi hati tepat di area jari/kursor kamu memencet
             hati.style.left = (event.clientX - 15) + 'px';
             hati.style.top = (event.clientY - 30) + 'px';
             
             document.body.appendChild(hati);
             
-            // Menghapus elemen hati setelah animasinya selesai agar browser tidak lemot
-            setTimeout(() => {
-                hati.remove();
-            }, 800);
+            setTimeout(() => { hati.remove(); }, 1000);
 
-            // Bersuara di browser (opsional menggunakan fitur text-to-speech bawaan Android)
-            if ('speechSynthesis' in window) {
-                const suara = new SpeechSynthesisUtterance("Purr... Meow!");
-                suara.pitch = 1.5; // Membuat suara meow jadi imut/tinggi
-                suara.rate = 1.2;
-                window.speechSynthesis.speak(suara);
-            }
+            // B. Putar Suara Meow Kucing Asli yang Imut
+            const audio = document.getElementById('suara-meow');
+            audio.currentTime = 0; // Reset suara ke awal agar bisa ditap berkali-kali dengan cepat
+            audio.play().catch(err => console.log("Audio dimainkan setelah interaksi user pertama."));
         }
     </script>
 
 </body>
 </html>
-
