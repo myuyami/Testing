@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cute Black Cat 🐾</title>
+    <title>Cute Black Cat </title>
     <style>
 
 
@@ -79,7 +79,7 @@
 </head>
 <body>
 
-    <h1>Cute Black Cat 🐾</h1>
+    <h1>Cute Black Cat </h1>
     <p>Try tapping or petting the cat below!</p>
 
     <div class="cat-furniture"></div>
@@ -97,11 +97,10 @@
     </div>
 
    
-    <audio id="meow-audio" src="https://wikimedia.org" preload="auto"></audio>
-
+  
     <script>
         function petCat(event) {
-           
+          
             const heart = document.createElement('div');
             heart.classList.add('heart');
             heart.innerHTML = '❤️';
@@ -113,12 +112,29 @@
             
             setTimeout(() => { heart.remove(); }, 1000);
 
-          
-            const audio = document.getElementById('meow-audio');
-            audio.currentTime = 0;
-            audio.play().catch(err => console.log("Audio triggered after user interaction."));
+           
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            osc.type = 'triangle';
+           
+            osc.frequency.setValueAtTime(450, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(700, audioCtx.currentTime + 0.15);
+            osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.5);
+            
+            gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.5);
         }
-    </script>
+    </script>       
 
+
+   
 </body>
 </html>
