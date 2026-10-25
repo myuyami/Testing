@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cute Black Cat </title>
-    <style>
+<style>
 
 
         
@@ -76,13 +76,17 @@
             100% { transform: translateY(-120px) scale(1.3) rotate(15deg); opacity: 0; }
         }
         
-       .eye-closed {
+       .eyes-closed {
        	height: 6px !important;
        	top: 62px !important;
        	border-radius: 50% 50% 0 0 !important;
        	
         }
 
+      .eyes-closed::after {
+      	display: none !important;
+      }
+       
          @keyframes eyeBlink {
          	0%, 90%, 100% { transform: scaleY(1);}
          	95% { transform: scaleY(0.1); }
@@ -92,8 +96,8 @@
         .eyes-blinking {
         	animation: eyeBlink 4s infinite;
         }
-        
-    </style>
+
+</style>
 </head>
 <body>
 
@@ -116,7 +120,7 @@
 
    
   
-    <script>
+<script>
         let openEyesTimer;
         let naturalBlinkTimer;
         
@@ -173,7 +177,7 @@
             osc.start();
             osc.stop(audioCtx.currentTime + 0.5);
         }
-    </script>       
+</script>       
 
 
    
