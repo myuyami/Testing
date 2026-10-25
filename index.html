@@ -6,8 +6,6 @@
     <title>Cute Black Cat </title>
 <style>
 
-
-        
         body {
             margin: 0;
             padding: 0;
@@ -123,6 +121,16 @@
 <script>
         let openEyesTimer;
         let naturalBlinkTimer;
+
+        setTimeout(() => {
+        	const leftEye = document.querySelector('.left-eye');
+        	const rightEye = document.querySelector('.right-eye');
+
+        	if (!leftEye.classList.contais('eyes-closed')) {
+        		leftEye.classList.add('eyes-blinking');
+        		rightEye.classList.add('eyes-blinking');
+        	}
+        }, 3000);
         
         function petCat(event) {
         	const leftEye = document.querySelector('.left-eye');
