@@ -52,7 +52,7 @@
         .left-ear, .right-ear { position: absolute; top: -10px; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 40px solid #222; }
         .left-ear { left: 45px; transform: rotate(-15deg); }
         .right-ear { right: 45px; transform: rotate(15deg); }
-        .left-eye, .right-eye { position: absolute; top: 50px; width: 30px; height: 30px; background-color: #ffd700; border-radius: 50%; }
+        .left-eye, .right-eye { position: absolute; top: 50px; width: 30px; height: 30px; background-color: #ffd700; border-radius: 50%; overflow: hidden; }
         .left-eye { left: 60px; } .right-eye { right: 60px; }
         .left-eye::after, .right-eye::after { content: ''; position: absolute; top: 5px; left: 11px; width: 8px; height: 20px; background-color: #000; border-radius: 50%; }
         .nose-part { position: absolute; top: 75px; left: 95px; width: 10px; height: 8px; background-color: #ffb6c1; border-radius: 50%; }
@@ -99,8 +99,6 @@
          	}
          }
 
- 
-        }
 
         .eyes-blinking {
         	animation: eyeBlink 4s ease-in-out infinite;
@@ -163,7 +161,7 @@
          	naturalBlinkTimer = setTimeout(() => {
          		leftEye.classList.add('eyes-blinking');
          		rightEye.classList.add('eyes-blinking');
-         	},4000);
+         	},3000);
          
             const heart = document.createElement('div');
             heart.classList.add('heart');
