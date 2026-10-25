@@ -93,9 +93,9 @@
          	}
 
             93%, 97% {
-         	height: 6px;
-         	top: 62px;
-         	border-radius: 50%, 50% 0 0;
+        	  height: 6px;
+          	  top: 62px;
+              border-radius: 50% 50% 0 0;
          	}
          }
 
@@ -137,11 +137,11 @@
         	const leftEye = document.querySelector('.left-eye');
         	const rightEye = document.querySelector('.right-eye');
 
-        	if (!leftEye.classList.contais('eyes-closed')) {
+        	if (!leftEye.classList.contains('eyes-closed')) {
         		leftEye.classList.add('eyes-blinking');
         		rightEye.classList.add('eyes-blinking');
         	}
-        }, 3000);
+        }, 0);
         
         function petCat(event) {
         	const leftEye = document.querySelector('.left-eye');
