@@ -115,7 +115,7 @@
         	margin-bottom: 10px;
         	z-index: 10;
         	text-shadow: 0 2px 10px rgba (0, 0, 0, 0.3);
-        	display: none;
+        	transition: transform 0.1s ease;
         	      	            
         }
         
@@ -160,10 +160,6 @@
         }, 0);
         
         function petCat(event) {
-
-            petCount++;
-            document.querySelector('.pet-counter').style.display = 'block';
-            document.getElemetById('counter-value').innertext = petCount;
       
         	const leftEye = document.querySelector('.left-eye');
         	const rightEye = document.querySelector('.right-eye');
@@ -220,7 +216,6 @@
             petCount++;
             const counterEl =  document.getElementById('counter-value');
             counterEl.innerText =  petCount;
-            document.querySelector('.pet-counter').style.display = 'block';
 
             counterEl.style.trasnform = 'scale(1.3)';
             setTimeout(() => {
