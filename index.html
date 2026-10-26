@@ -106,13 +106,27 @@
         	animation: eyeBlink 3s ease-in-out infinite;
         }
 
+        .pet-counter {
+        	font-family: sans-serif;
+        	color: #8b5a2b;
+        	font-size: 18px;
+        	font-weight: bold;
+        	margind-bottom: 20px;
+        	z-index: 10;
+        	background-color: rgba (255, 255, 255, 0.5);
+        	padding: 5px 15px;
+        	border-radius: 20px;
+        	            
+        }
+        
+        
 </style>
 </head>
 <body>
 
     <h1>Cute Black Cat </h1>
     <p>Try tapping the cat below!</p>
-
+    <div class="pet-counter"Pets: <span id="counter-value">0</span></div>
     <div class="cat-furniture"></div>
     <div class="window"></div>
 
@@ -132,6 +146,7 @@
 <script>
         let openEyesTimer;
         let naturalBlinkTimer;
+        let petCount = 0;
 
         setTimeout(() => {
         	const leftEye = document.querySelector('.left-eye');
@@ -195,7 +210,11 @@
             
             osc.start();
             osc.stop(audioCtx.currentTime + 0.5);
+
+            petCount++;
+            document.getElementById('counter-value').innerText =  petCount;
         }
+        
 </script>       
 
 
